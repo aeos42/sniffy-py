@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Float, DateTime, String, Integer
-from sqlalchemy.ext.declarative import declarative_base
+from db import Base
 
-Base = declarative_base()
+
 
 class AirData(Base):
     __tablename__ = 'air_data'
@@ -13,5 +13,14 @@ class AirData(Base):
     pm1 = Column(Float)
     pm25 = Column(Float)
     pm10 = Column(Float)
+
+    def __init__(self, time=None, temp=None, hum=None, co2=None, pm1=None, pm25=None, pm10=None):
+        self.time = time
+        self.temp = temp
+        self.hum = hum
+        self.co2 = co2
+        self.pm1 = pm1
+        self.pm25 = pm25
+        self.pm10 = pm10
 
 

@@ -11,8 +11,5 @@ testRecord = models.AirData(time=datetime.now(
 print(testRecord.time)
 
 Session = sessionmaker(bind=engine)
-session = Session()
-
-session.add(testRecord)
-session.commit()
+db_session = Session()
 

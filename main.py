@@ -50,3 +50,7 @@ def get_pm25():
     string_datetime = str(datetime.datetime.now().isoformat())
     pm25 = {string_datetime: 73.2}
     return pm25
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
